@@ -1,0 +1,19 @@
+1. Data cleaning
+  e.g. we use openpose to label the data, but sometimes, the label is wrong.
+  or there is no person in the image at all. All these images needed to be delete before training.
+  solution: we only use the images all 6 keypoints(nose, neck, shoulders, eyes) are detected sucessfully.
+
+2. Learning rate adjustment strategy
+  At first, it can be 0.00025, and after some iterations, e.g. 100000, it can be smaller 0.0001
+  
+3. Flip operation
+  Pay attention to the eyes order. We can visualize by imshow in a loop.
+  
+4. Model freeze
+  Use tf_graph_tool.py shell to freeze the model(.meta, checkpoint, .index) into one .pb file.
+
+5.Evaluation methods
+  Select the test sets and the methods. If detected all the six joints, nums_detected_right += 1
+  Accuracy is another feature that can be used.
+  
+6. Batchsize num and other parameters
