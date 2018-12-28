@@ -1,0 +1,10 @@
+1. Base 502000.pb, no train on the new dataset
+   6 joints detection rate: 88%
+
+2. training 105000 iter, using 4w images, with eyes order issue
+  test_1000: 82.7%
+  if we use 1000 images in training sets, results as below(try three times)
+  83.3% 94.8% 86.7%
+  
+3. Loss gap 
+  Train loss and Val loss is strange. Val is about 3 times than Train loss.
