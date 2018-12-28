@@ -17,3 +17,10 @@
   Accuracy is another feature that can be used.
   
 6. Batchsize num and other parameters
+
+7. Open tensorboard
+  cd Log
+  Log$ tensorboard --logdir=1228-NKShapeNetSHG256x288Head-lr2.5e4-5w --port=6008
+  copy the server IP address： 113.106.88.100:22
+  Open Chrome, replace 22 at the last with tensorboard's port：6008
+  click into the address, you will see tensorboard： 113.106.88.100:6008
