@@ -1,32 +1,73 @@
-1. Base 502000.pb, no train on the new dataset
-   6 joints detection rate: 88%
+0.How to choose the test datasets?
+   Test_1000: including 1000 images, not loop in training process
+   Train_1000:  select 1000 images randomly in training sets
+   Train_1000_V2: select 1000 images randomly in training sets again
+   Train_5000: including 5741 images in training sets
 
-2. training 105000 iter, using 4w images, with eyes order issue
+1. Base 502000.pb, no train on the new dataset
+   6 joints detection rate 
+   test_1000: 88%
+   train_5000: 83.10%
+
+2. Training 105000 iterations based on 502000.pb, using 4w images(detect 6 joints, data cleaned), with eyes order issue
   test_1000: 82.7%
   if we use 1000 images in training sets, results as below(try three times)
-  83.3% V194.8% V286.7%
+  test_1000(V0) accuracy: 83.3% 
+  train_1000(V1) accuracy: 94.8%  
+  train_1000_V2 accuracy: 86.7%
   
 3. Loss gap 
   Train loss and Val loss is strange. Val is about 3 times than Train loss.
   After 10000+ iterations, the val loss drop, then little bigger than train loss
   train loss: between 3-5, val loss: between 3.8-6.8, after 30000+ it goes up.
   Totally, the total loss goes down.
-  
-  we train three version:
+
+4. Test performance result records
+  we train three version, training sets including 4w images.
+  (1) no pretrained, train the model based on 502000.pb dirctly
+  (2) train the model based on 105000.pb， V2， was killed accidently, only to 80000+ iterations
+  (3) train the model based on 105000.pb, V3
   (1)no pre trained, we use 502000.pb
      Model 25000.pb
          test_1000 accuracy:  90.90% 
          train_1000 accuracy:  95.90%
          train_1000_V2 accuracy: 92.00%
+         train_5000 accuracy: 95.56%
      Model 90000.pb
          test_1000 accuracy:  95.00% 
-         train_1000 accuracy:  %
+         train_1000 accuracy:  97.20%
          train_1000_V2 accuracy: 94.5%
-  (2)use preModel 105000.pb, train on 4w+ cleaned images(accuracy: 82.7% on Test_1000)
+         train_5000 accuracy: 97.07%
+     Model 120000.pb(latest trained version)
+         test_1000 accuracy:  94.1% 
+         train_1000 accuracy:  TBC%
+         train_1000_V2 accuracy: TBC%
+         train_5000 accuracy: 96.74%
+  (2)use preModel 105000.pb, train on 4w+ cleaned images(accuracy: 82.7% on Test_1000), was ended ?80000+ steps
      Model 80000.pb
          test_1000 accuracy:  95.10% 
          train_1000 accuracy:  97.10%
-         train_1000_V2 accuracy: 94.1%
+         train_1000_V2 accuracy: 94.10%
+         train_5000 accuracy: 97.00%
   (3)use preModel 105000.pb, train on 4w+ cleaned images(accuracy: 82.7% on Test_1000) V3
      version2, to make a comparision with(2)
-  
+     Model 80000.pb
+         test_1000 accuracy:  95.70% 
+         train_1000 accuracy: 96.60%
+         train_1000_V2 accuracy: 95.00%
+         train_5000 accuracy:   96.93%
+     Model 90000.pb
+         test_1000 accuracy:  95.6% 
+         train_1000 accuracy:  96.70%
+         train_1000_V2 accuracy: 94.90%
+         train_5000 accuracy: 97.11%
+     Model 120000.pb(best performance, so next training's premodel)
+         test_1000 accuracy:  95.60% 
+         train_1000 accuracy:  TBC%
+         train_1000_V2 accuracy: TBC%
+         train_5000 accuracy: 97.33%
+         
+Conclusion
+   From the above records, we can easily know that 
+   (1)More iterations and data clean are key to improve the performance.
+   (2)
