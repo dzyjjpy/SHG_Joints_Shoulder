@@ -4,7 +4,29 @@
 2. training 105000 iter, using 4w images, with eyes order issue
   test_1000: 82.7%
   if we use 1000 images in training sets, results as below(try three times)
-  83.3% 94.8% 86.7%
+  83.3% V194.8% V286.7%
   
 3. Loss gap 
   Train loss and Val loss is strange. Val is about 3 times than Train loss.
+  After 10000+ iterations, the val loss drop, then little bigger than train loss
+  train loss: between 3-5, val loss: between 3.8-6.8, after 30000+ it goes up.
+  Totally, the total loss goes down.
+  
+  we train three version:
+  (1)no pre trained, we use 502000.pb
+     Model 25000.pb
+         test_1000 accuracy:  90.90% 
+         train_1000 accuracy:  95.90%
+         train_1000_V2 accuracy: 92.00%
+     Model 90000.pb
+         test_1000 accuracy:  95.00% 
+         train_1000 accuracy:  %
+         train_1000_V2 accuracy: 94.5%
+  (2)use preModel 105000.pb, train on 4w+ cleaned images(accuracy: 82.7% on Test_1000)
+     Model 80000.pb
+         test_1000 accuracy:  95.10% 
+         train_1000 accuracy:  97.10%
+         train_1000_V2 accuracy: 94.1%
+  (3)use preModel 105000.pb, train on 4w+ cleaned images(accuracy: 82.7% on Test_1000) V3
+     version2, to make a comparision with(2)
+  
