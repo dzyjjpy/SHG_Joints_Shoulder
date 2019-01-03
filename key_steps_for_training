@@ -24,3 +24,21 @@
   copy the server IP address： 113.106.88.100:22
   Open Chrome, replace 22 at the last with tensorboard's port：6008
   click into the address, you will see tensorboard： 113.106.88.100:6008
+
+8. Discussion with yj
+  The performance 95.4% is okay for usage. For the test_1000, the remaining 44 images, there are following NG reasons:
+  (1)customer is not corperative with the machine; e.g. parents with a baby in front of them
+  (2)heavy coats or sweaters
+  (3)Occlusion for some joints
+  (4)Openpose's wrong label, e.g. openpose doesnot extract the object we want to focus on.
+  
+9. Next direction
+  (1)For coats sample, label the images mannually;
+  (2)Change the strategy for choosing one target person from multiple candidate;
+  (3)
+  
+10.Model Deploy
+  Give the model 1228-NKShapeNetSHG256x288Head-lr2.5e4-4w-105000V3-120000.pb to linlj
+  based on 105000 model, based 502000.pb, trained 120000 iterations on 4w images.
+  Change the name to: Joints-HeadShoulder-V2-jiapy-0103.pb
+  
