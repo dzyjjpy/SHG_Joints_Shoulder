@@ -35,7 +35,8 @@
 9. Next direction
   (1)For coats sample, label the images mannually;
   (2)Change the strategy for choosing one target person from multiple candidate;
-  (3)delete the images with wrong labels
+  (3)delete the images with wrong labels;
+  (4)if detected one shouder joints, or one eyes joints, we can estimate the other one;
   
 10.Model Deploy
   Give the model 1228-NKShapeNetSHG256x288Head-lr2.5e4-4w-105000V3-120000.pb to linlj
